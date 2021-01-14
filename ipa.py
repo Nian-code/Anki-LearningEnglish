@@ -43,6 +43,7 @@ def wiktionary(word):
         ipas = [ipa.text for ipa in ipas_list]
         dic = dict(zip(type_ipa, ipas))
         print(dic)
+        return dic
 
     else:
         print("Word not find")
@@ -71,6 +72,8 @@ def lexico(word):
             ipa = titles[0].text
             ipa = cleaner(ipa)
             print(ipa)
+        
+        return ipa
 
     else:
         print("Word not find")
@@ -81,21 +84,22 @@ def lexico(word):
 def ipa_cmu(word):
     def palabra(word):
         palabra = engipa.ipa_list(word)
-        for i in palabra[0]:
-            i = cleaner(i)
-            print(i)
+        palabra = cleaner(str(palabra[0]))
+        print(palabra)
+        return palabra
 
     def frase(word):
         oracion = engipa.convert(word)
         oracion = cleaner(oracion)
         print(oracion)
+        return(oracion)
 
     word_list = word.split()
 
     if len(word_list) == 1:
-        palabra(word)
+        return palabra(word)
     elif len(word_list) >= 2:
-        frase(word)
+        return frase(word)
     else:
         print("word not find")
         return None

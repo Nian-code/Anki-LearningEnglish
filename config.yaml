@@ -1,7 +1,7 @@
 ipa:
-  wikitionary: 1
+  wikitionary: 0
   lexico: 0
-  CMU: 0
+  CMU: 1
 translator:
   googletranslate: 1
   linguee: 0
