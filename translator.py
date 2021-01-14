@@ -3,40 +3,25 @@ from googletrans import Translator
 from deep_translator import LingueeTranslator
 from deep_translator import GoogleTranslator
 
-choise = """
-[1] Linguee
-[2] Google Trasnslator
-[9] Atras
-    
-Ingresa un número: """
 
-
-def solicitud():
-    word = str(input("Ingresa una palabra: ")).lower()
-    if not word:
-        solicitud()
-
+def solicitud(word):
     translator = Translator()
     language = translator.detect(word)
     language = language.lang
 
     if type(language) == list:
         if language[0] == "en" or language[0] == "es":
-            return word, language[0]
+            return language[0]
         else:
-            solicitud()
+            pass
     else:
         if language == "en" or language == "es":
-            return word, language
+            return language
         else:
-            solicitud()
+            pass
 
-
-def do_translat(translator):
-    try:
-        word, language = solicitud()
-    except TypeError:
-        word, language = solicitud()
+def do_translat(translator, word):
+    language = solicitud(word)
     if language == "en":
         dest = "es"
     else:
@@ -58,16 +43,13 @@ def do_translat(translator):
         except:
             print("Error")
 
-def linguee():
-    translated = do_translat(LingueeTranslator)
+def linguee(word):
+    translated = do_translat(LingueeTranslator, word)
     if translated:
         for i in translated:
             print(i.capitalize())
 
-   
-
-
-def googletrans():
-    translated = do_translat(GoogleTranslator)
+def googletrans(word):
+    translated = do_translat(GoogleTranslator, word)
     if translated:
         print(translated.capitalize())

@@ -30,18 +30,18 @@ def choise_options(config, word):
     else:
         print("Revisa la configuración en config.yaml sección IPA")
 
-    # if config["translator"]["googletranslate"] and config["translator"]["linguee"] == 1:
-    #     print("Revisa la configuración en config.yaml, has elegido varios motores de traducción")
-    # elif config["translator"]["googletranslate"] == 1:
-    #     translator.googletrans()
+    if config["translator"]["googletranslate"] and config["translator"]["linguee"] == 1:
+        print("Revisa la configuración en config.yaml, has elegido varios motores de traducción")
+    elif config["translator"]["googletranslate"] == 1:
+        translator.googletrans(word)
 
-    # elif config["translator"]["linguee"] == 1:
-    #     translator.linguee()
-    # else:
-    #     print("Revisa la configuración en config.yaml sección translate")
+    elif config["translator"]["linguee"] == 1:
+        translator.linguee(word)
+    else:
+        print("Revisa la configuración en config.yaml sección translate")
 
-    # example.run()
-    # polly.run()
+    example.ingles_example(word)
+    polly.generate_sound(word)
 
 
 

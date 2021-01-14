@@ -1,10 +1,10 @@
 ipa:
-  wikitionary: 0
+  wikitionary: 1
   lexico: 0
   CMU: 0
 translator:
-  googletranslate: 0
-  linguee: 1
+  googletranslate: 1
+  linguee: 0
 sound: 
   polly: 1
 example:
