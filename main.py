@@ -22,11 +22,14 @@ def choise_options(config, word):
     elif config["ipa"]["CMU"] and config["ipa"]["wikitionary"] == 1:
         print("Elije solo una opción de ipa")
     elif config["ipa"]["wikitionary"] == 1:
-        ipa.wiktionary(word)
-    elif config["ipa"]["lexico"] == 1:
-        ipa.lexico(word)
+        if not ipa.wiktionary(word):
+            run()
+    elif config["ipa"]["lexico"] == 1: 
+        if not ipa.lexico(word):
+            run()
     elif config["ipa"]["CMU"] == 1:
-        ipa.ipa_cmu(word)
+        if not ipa.ipa_cmu(word):
+            run()
     else:
         print("Revisa la configuración en config.yaml sección IPA")
 
@@ -42,8 +45,6 @@ def choise_options(config, word):
 
     example.ingles_example(word)
     polly.generate_sound(word)
-
-
 
 def run():
     config = config_def()

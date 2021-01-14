@@ -46,10 +46,8 @@ def wiktionary(word):
 
     else:
         print("Word not find")
-
-
-
-
+        return None
+        
 def lexico(word):
     url = "https://www.lexico.com/en/definition/"
     selector = "span.phoneticspelling"
@@ -76,6 +74,7 @@ def lexico(word):
 
     else:
         print("Word not find")
+        return None
 
 
 
@@ -98,4 +97,5 @@ def ipa_cmu(word):
     elif len(word_list) >= 2:
         frase(word)
     else:
-        print("Error")
+        print("word not find")
+        return None
