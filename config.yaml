@@ -1,14 +1,12 @@
 ipa:
   wikitionary: 0
-  lexico: 0
-  CMU: 1
+  lexico: 1
+  CMU: 0
 translator:
-  googletranslate: 1
-  linguee: 0
-sound: 
+  googletranslate: 0
+  linguee: 1
+sound:
   polly: 1
 example:
   ingles.com: 1
-
-  
 

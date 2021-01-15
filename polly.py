@@ -29,22 +29,22 @@ def delete(my_bucket, name_file):
                                         Delete={'Objects': [{'Key': name_file}]})
     return respuesta
 
-def descargar(taskId, word):    
+def descargar(taskId, word):
     s3 = sessionS3()
     my_bucket = s3.Bucket(lista_aws["buckets"])
 
     print("Descargando elemento...")
 
     my_bucket.download_file(taskId, "{}{}".format(
-        lista_aws["root"], word))
+        lista_aws["root"], word+".mp3"))
     print("Descarga completada")
 
 def status(taskId, word):
     statu = {'scheduled': "en peticion", 'inProgress': "en proceso",
                     'completed': "generado", 'failed': "fallido"}
 
-    generado = statu["completed"]      
-    estado   = statu["scheduled"]   
+    generado = statu["completed"]
+    estado   = statu["scheduled"]
     while estado != generado:
         try:
             polly_client = cliente()
@@ -57,7 +57,7 @@ def status(taskId, word):
 
         except:
             polly_tarea(word)
-    
+
     if generado:
         s3 = sessionS3()
         my_bucket = s3.Bucket(lista_aws["buckets"])

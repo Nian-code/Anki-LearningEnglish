@@ -48,7 +48,7 @@ def wiktionary(word):
     else:
         print("Word not find")
         return None
-        
+
 def lexico(word):
     url = "https://www.lexico.com/en/definition/"
     selector = "span.phoneticspelling"
@@ -72,7 +72,7 @@ def lexico(word):
             ipa = titles[0].text
             ipa = cleaner(ipa)
             print(ipa)
-        
+
         return ipa
 
     else:

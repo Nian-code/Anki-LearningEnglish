@@ -24,13 +24,13 @@ def choise_options(config, word):
         print("Elije solo una opción de ipa")
     elif config["ipa"]["wikitionary"] == 1:
         ipa_response = ipa.wiktionary(word)
-        
-    elif config["ipa"]["lexico"] == 1: 
+
+    elif config["ipa"]["lexico"] == 1:
         ipa_response = ipa.lexico(word)
 
     elif config["ipa"]["CMU"] == 1:
         ipa_response = ipa.ipa_cmu(word)
-           
+
     else:
         print("Revisa la configuración en config.yaml sección IPA")
     # Si no hay nada en ipa_response entonces se devuelve al menú
